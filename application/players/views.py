@@ -18,32 +18,29 @@ def players_index():
     return render_template("players/list.html", players = Player.query.all())
 
 @app.route("/players/<player_id>/", methods=["POST"])
-def players_set_top(player_id):
+def players_set(player_id):
     pl = Player.query.get(player_id)
-    pl.top = True
-    db.session().commit()
-    return redirect(url_for("players_index"))
+    if request.form["btn"] == "Change top!":
+        pl.top = True
+        db.session().commit()
+        return redirect(url_for("players_index"))
 
-def players_set_jgl(player_id):
-    pl = Player.query.get(player_id)
-    pl.jgl = True
-    db.session().commit()
-    return redirect(url_for("players_index"))
+    if request.form["btn"] == "Change jgl!":
+        pl.jgl = True
+        db.session().commit()
+        return redirect(url_for("players_index"))
 
-def players_set_mid(player_id):
-    pl = Player.query.get(player_id)
-    pl.mid = True
-    db.session().commit()
-    return redirect(url_for("players_index"))
+    if request.form["btn"] == "Change mid!":
+        pl.mid = True
+        db.session().commit()
+        return redirect(url_for("players_index"))
 
-def players_set_adc(player_id):
-    pl = Player.query.get(player_id)
-    pl.adc = True
-    db.session().commit()
-    return redirect(url_for("players_index"))
+    if request.form["btn"] == "Change adc!":
+        pl.adc = True
+        db.session().commit()
+        return redirect(url_for("players_index"))
 
-def players_set_sup(player_id):
-    pl = Player.query.get(player_id)
-    pl.sup = True
-    db.session().commit()
-    return redirect(url_for("players_index"))
+    if request.form["btn"] == "Change sup!":
+        pl.sup = True
+        db.session().commit()
+        return redirect(url_for("players_index"))
