@@ -19,32 +19,32 @@
       <td>{{ player.player_tag }}</td>
       <td>{{ player.top }}</td>
       <td>
-        <form method="POST" action="{{ url_for('players_set_top', player_id=player.id) }}">
-           <input type="submit" value="Change top!"/>
+        <form method="POST" action="{{ url_for('players_set', player_id=player.id) }}">
+           <input type="submit" name="btn" value="Change top!"/>
         </form>
       </td>
       <td>{{ player.jgl }}</td>
       <td>
-        <form method="POST" action="{{ url_for('players_set_jgl', player_id=player.id) }}">
-           <input type="submit" value="Change jgl!"/>
+        <form method="POST" action="{{ url_for('players_set', player_id=player.id) }}">
+           <input type="submit" name="btn" value="Change jgl!"/>
         </form>
       </td>
       <td>{{ player.mid }}</td>
       <td>
-         <form method="POST" action="{{ url_for('players_set_mid', player_id=player.id) }}">
-           <input type="submit" value="Change mid!"/>
+         <form method="POST" action="{{ url_for('players_set', player_id=player.id) }}">
+           <input type="submit" name="btn" value="Change mid!"/>
         </form>
       </td>
       <td>{{ player.adc }}</td>
       <td>
-         <form method="POST" action="{{ url_for('players_set_adc', player_id=player.id) }}">
-           <input type="submit" value="Change adc!"/>
+         <form method="POST" action="{{ url_for('players_set', player_id=player.id) }}">
+           <input type="submit" name="btn" value="Change adc!"/>
         </form>
       </td>
       <td>{{ player.sup }}</td>
       <td>
-         <form method="POST" action="{{ url_for('players_set_sup', player_id=player.id) }}">
-           <input type="submit" value="Change sup!"/>
+         <form method="POST" action="{{ url_for('players_set', player_id=player.id) }}">
+           <input type="submit" name="btn" value="Change sup!"/>
         </form>
       </td>
     </tr>
