@@ -9,11 +9,11 @@ class Player(db.Model):
 
     player_tag = db.Column(db.String(144), nullable=False)
    
-    role_top = db.Column(db.Boolean, nullable=False)
-    role_jgl = db.Column(db.Boolean, nullable=False)
-    role_mid = db.Column(db.Boolean, nullable=False)
-    role_adc = db.Column(db.Boolean, nullable=False)
-    role_sup = db.Column(db.Boolean, nullable=False)
+    top = db.Column(db.Boolean, nullable=False)
+    jgl = db.Column(db.Boolean, nullable=False)
+    mid = db.Column(db.Boolean, nullable=False)
+    adc = db.Column(db.Boolean, nullable=False)
+    sup = db.Column(db.Boolean, nullable=False)
 
     def __init__(self, player_tag):
         self.player_tag = player_tag

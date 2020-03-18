@@ -20,34 +20,34 @@ def players_index():
 @app.route("/players/<player_id>", methods=["POST"])
 def players_set_top(player_id):
     pl = Player.query.get(player_id)
-    pl.role_top = True
+    pl.top = True
     db.session().commit()
     return redirect(url_for("players_index"))
 
 @app.route("/players/<player_id>", methods=["POST"])
 def players_set_jgl(player_id):
     pl = Player.query.get(player_id)
-    pl.role_jgl = True
+    pl.jgl = True
     db.session().commit()
     return redirect(url_for("players_index"))
 
 @app.route("/players/<player_id>", methods=["POST"])
 def players_set_mid(player_id):
     pl = Player.query.get(player_id)
-    pl.role_mid = True
+    pl.mid = True
     db.session().commit()
     return redirect(url_for("players_index"))
 
 @app.route("/players/<player_id>", methods=["POST"])
 def players_set_adc(player_id):
     pl = Player.query.get(player_id)
-    pl.role_adc = True
+    pl.adc = True
     db.session().commit()
     return redirect(url_for("players_index"))
 
 @app.route("/players/<player_id>", methods=["POST"])
 def players_set_sup(player_id):
     pl = Player.query.get(player_id)
-    pl.role_sup = True
+    pl.sup = True
     db.session().commit()
     return redirect(url_for("players_index"))
