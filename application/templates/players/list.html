@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <table>
+    <tr>
+      <th>Player</th>
+      <th>Plays top</th>
+      <th>Plays jungle</th>
+      <th>Plays middle</th>
+      <th>Plays adc</th>
+      <th>Plays support</th>
+    </tr>
+    {% for player in players %}
+    <tr>
+      <td>{{ player.player_tag }}</td>
+      <td>{{ player.role_top }}</td>
+      <td>
+        <form method="POST" action="{{ url_for('players_set_top', player_id=player.id) }}">
+           <input type="submit" value="Change top!"/>
+        </form>
+      </td>
+      <td>{{ player.role_jgl }}</td>
+      <td>
+        <form method="POST" action="{{ url_for('players_set_jgl', player_id=player.id) }}">
+           <input type="submit" value="Change jgl!"/>
+        </form>
+      </td>
+      <td>{{ player.role_mid }}</td>
+      <td>
+         <form method="POST" action="{{ url_for('players_set_mid', player_id=player.id) }}">
+           <input type="submit" value="Change mid!"/>
+        </form>
+      </td>
+      <td>{{ player.role_adc }}</td>
+      <td>
+         <form method="POST" action="{{ url_for('players_set_adc', player_id=player.id) }}">
+           <input type="submit" value="Change adc!"/>
+        </form>
+      </td>
+      <td>{{ player.role_sup }}</td>
+      <td>
+         <form method="POST" action="{{ url_for('players_set_sup', player_id=player.id) }}">
+           <input type="submit" value="Change sup!"/>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
