@@ -17,8 +17,8 @@ class Player(db.Model):
 
     def __init__(self, player_tag):
         self.player_tag = player_tag
-        self.role_top = False
-        self.role_jgl = False
-        self.role_mid = False
-        self.role_adc = False
-        self.role_sup = False
+        self.top = False
+        self.jgl = False
+        self.mid = False
+        self.adc = False
+        self.sup = False
