@@ -1,4 +1,4 @@
-<h1> LoL-tiimien koostaminen ja haasteiden heittäminen kaveriporukassa  </h1>
+<h1> LoL-tiimien koostaminen ja tiimikavereiden etsiminen </h1>
   
   [Linkki herokuun jossa appi on deployattu](https://tsohateambuilder.herokuapp.com)  
     
