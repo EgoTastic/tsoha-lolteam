@@ -5,9 +5,10 @@
   <h2>Applikaation tavoite</h2>
   
 <p> Tarkoitus luoda sovellus, jolla käyttäjä voi luoda itselleen profiilin ja määritellä preferoimansa rooli tiimissä (top/jungle/mid/adc/support)  
-Sovelluksessa voi lisätä itsensä tiimiin, etsien esim tiimejä joista puuttuu pelaaja itse preferoimasta roolista, samalla taas tiimille voi etsiä pelaajia, jotka preferoivat juuri kyseistä roolia
-Haasteita voi heittää tiimiltä tiimille, kunhan ne ovat täynnä, haasteelle määritellään pvm ja samalla myäs tulokselle oma kohta, jonka admin voi päivittää todisteiden valossa.  
-Tauluja on kolme, yksi pelaajalle jossa on pelaajan tagi, id sekä preferoitu rooli. Joukkue taulussa on taas joukkueen id, nimi ja 5 kohtaa eri rooleille jotka ovat tyhjänä null tai sitten pelaajan_id. Haaste taulussa taas on oma id, joukkueiden id (eli kaksi joukkuetta), peli pvm ja tulos. </p>
+Sovelluksessa voi luoda oman tunnuksen, jonka avulla voi määritellä itselleen oman pelaajatägin mitä käyttää League of Legendsissä, sen lisäksi voi määrittää mitä eri pelin rooleja pelaa. Sovelluksessa voi luoda tiimejä ja täyttää tiimin 5 eri roolia pelaajilla. Tiimin puuttuvia rooleja voi etsiä pelaajien joukosta, etsimällä kyseistä roolia pelaavia pelaajia. Toiminnallisuuteen voi mahdollisesti lisätä myös filtteröintiä pelaajan ränkin perusteella tai vastaavaa.  
+  
+  
+  Tauluja on kolme Player, jossao on player_id, login_name, player_tag (eli LoL käyttäjänimi), salasana, roolipreferenssit ja hakeeko tiimiä. Team taulussa on tiimin id sekä nimi. Viimeisenä liitostaulu pelaajien ja tiimien välillä mikä kertoo myös roolin tiimissä. Mahdollistaa useamman samaa roolia pelaavan samassa tiimissä</p>
 
 <h2>2 viikon aikana toteutetut asiat V0.00.02</h2>
 <ul>
