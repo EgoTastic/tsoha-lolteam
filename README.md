@@ -1,6 +1,8 @@
 <h1> LoL-tiimien koostaminen ja haasteiden heittäminen kaveriporukassa  </h1>
   
-  [Linkki herokuun jossa appi on deployattu](https://tsohateambuilder.herokuapp.com)
+  [Linkki herokuun jossa appi on deployattu](https://tsohateambuilder.herokuapp.com)  
+    
+  [Linkki nykyiseen tietokaaviopohjaan](https://github.com/EgoTastic/tsoha-lolteam/blob/master/documentation/Tietokantakaavio%20v2.pdf)
   
   <h2>Applikaation tavoite</h2>
   
