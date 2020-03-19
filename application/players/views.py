@@ -21,26 +21,51 @@ def players_index():
 def players_set(player_id):
     pl = Player.query.get(player_id)
     if request.form["btn"] == "Change top!":
-        pl.top = True
-        db.session().commit()
-        return redirect(url_for("players_index"))
+        if pl.top == True:
+            pl.top = False
+            db.session().commit()
+            return redirect(url_for("players_index"))
+        if pl.top == False:
+            pl.top = True
+            db.session().commit()
+            return redirect(url_for("players_index"))
 
     if request.form["btn"] == "Change jgl!":
-        pl.jgl = True
-        db.session().commit()
-        return redirect(url_for("players_index"))
+        if pl.jgl == True:
+            pl.jgl = False
+            db.session().commit()
+            return redirect(url_for("players_index"))
+        if pl.jgl == False:
+            pl.jgl = True
+            db.session().commit()
+            return redirect(url_for("players_index"))
 
     if request.form["btn"] == "Change mid!":
-        pl.mid = True
-        db.session().commit()
-        return redirect(url_for("players_index"))
+        if pl.mid == True:
+            pl.mid = False
+            db.session().commit()
+            return redirect(url_for("players_index"))
+        if pl.mid == False:
+            pl.mid = True
+            db.session().commit()
+            return redirect(url_for("players_index"))
 
     if request.form["btn"] == "Change adc!":
-        pl.adc = True
-        db.session().commit()
-        return redirect(url_for("players_index"))
+        if pl.adc == True:
+            pl.adc = False
+            db.session().commit()
+            return redirect(url_for("players_index"))
+        if pl.adc == False:
+            pl.adc = True
+            db.session().commit()
+            return redirect(url_for("players_index"))
 
     if request.form["btn"] == "Change sup!":
-        pl.sup = True
-        db.session().commit()
-        return redirect(url_for("players_index"))
+        if pl.sup == True:
+            pl.sup = False
+            db.session().commit()
+            return redirect(url_for("players_index"))
+        if pl.sup == False:
+            pl.sup = True
+            db.session().commit()
+            return redirect(url_for("players_index"))
