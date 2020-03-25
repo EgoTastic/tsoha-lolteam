@@ -7,6 +7,7 @@ import os
 
 if os.environ.get("HEROKU"):
     app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
+    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 else:
    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///players.db"
    app.config["SQLALCHEMY_ECHO"] = True
