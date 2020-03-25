@@ -1,16 +1,29 @@
 from application import app, db
 from flask import render_template, request, redirect, url_for
 from application.players.models import Player
+from application.players.forms import PlayerForm
 
 @app.route("/players/new/")
 def players_form():
-    return render_template("players/new.html")
+    return render_template("players/new.html", form = PlayerForm())
 
 @app.route("/players/", methods=["POST"])
 def players_create():
-    pl = Player(request.form.get("player_tag"))
+    form = PlayerForm(request.form)
+
+    if not form.validate():
+        return render_template("players/new.html", form = form)
+
+    pl = Player(form.player_tag.data)
+    pl.top = form.top.data
+    pl.jgl = form.jgl.data
+    pl.mid = form.mid.data
+    pl.adc = form.adc.data
+    pl.sup = form.sup.data
+
     db.session().add(pl)
     db.session().commit()
+
     return redirect(url_for("players_index"))
 
 @app.route("/players/", methods=["GET"])

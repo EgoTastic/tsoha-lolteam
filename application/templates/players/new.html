@@ -2,7 +2,76 @@
   
 {% block body %}
 <form method="POST" action="{{ url_for('players_create') }}">
-  <input type="text" name="player_tag"/>
-  <input type="submit" value="Add a new player"/>
+  <table>
+    <tr>
+      <td>
+        {{ form.player_tag.label }}
+      </td>
+      <td>
+        {{ form.player_tag }}
+      </td>
+      <td>
+        <ul>
+          {% for error in form.player_tag.errors %}
+          <li> {{ error }} </li>
+          {% endfor %}
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        {{ form.top.label }}
+      </td>
+      <td>
+        {{ form.top }}
+      </td>
+      <td>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        {{ form.jgl.label }}
+      </td>
+      <td>
+        {{ form.jgl }}
+      </td>
+      <td>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        {{ form.mid.label }}
+      </td>
+      <td>
+        {{ form.mid }}
+      </td>
+      <td>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        {{ form.adc.label }}
+      </td>
+      <td>
+        {{ form.adc }}
+      </td>
+      <td>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        {{ form.sup.label }}
+      </td>
+      <td>
+        {{ form.sup }}
+      </td>
+      <td>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <input type="submit" value="Add a new player"/>
+      </td>
+    </tr>
 </form>
 {% endblock %}
