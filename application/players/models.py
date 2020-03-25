@@ -15,6 +15,8 @@ class Player(db.Model):
     adc = db.Column(db.Boolean, nullable=False)
     sup = db.Column(db.Boolean, nullable=False)
 
+    account_id = db.Column(db.Integer, db.ForeignKey('account.id'), nullable = False)
+
     def __init__(self, player_tag):
         self.player_tag = player_tag
         self.top = False

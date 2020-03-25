@@ -1,9 +1,13 @@
 from application import app, db
+
+from flask_login import login_required
 from flask import render_template, request, redirect, url_for
+
 from application.players.models import Player
 from application.players.forms import PlayerForm
 
 @app.route("/players/new/")
+@login_required
 def players_form():
     return render_template("players/new.html", form = PlayerForm())
 
@@ -15,6 +19,7 @@ def players_create():
         return render_template("players/new.html", form = form)
 
     pl = Player(form.player_tag.data)
+    pl.account_id = current_user.id
     pl.top = form.top.data
     pl.jgl = form.jgl.data
     pl.mid = form.mid.data
@@ -27,10 +32,12 @@ def players_create():
     return redirect(url_for("players_index"))
 
 @app.route("/players/", methods=["GET"])
+@login_required
 def players_index():
     return render_template("players/list.html", players = Player.query.all())
 
 @app.route("/players/<player_id>/", methods=["POST"])
+@login_required
 def players_set(player_id):
     pl = Player.query.get(player_id)
     if request.form["btn"] == "Change top!":
