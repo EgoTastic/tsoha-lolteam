@@ -39,11 +39,16 @@ def players_create():
 def players_index():
     return render_template("players/list.html", players = Player.query.all())
 
-#Statuksen vaihto napin painolla
+#Statuksen vaihto tai pelaajan poisto napin painolla
 @app.route("/players/<player_id>/", methods=["POST"])
 @login_required
 def players_set(player_id):
     pl = Player.query.get(player_id)
+    if request.form["btn"] == "Remove player":
+        db.session().delete(pl)
+        db.session().commit()
+        return redirect(url_for("players_index"))
+        
     if request.form["btn"] == "Change top!":
         if pl.top == True:
             pl.top = False
@@ -59,36 +64,43 @@ def players_set(player_id):
             pl.jgl = False
             db.session().commit()
             return redirect(url_for("players_index"))
+
         if pl.jgl == False:
             pl.jgl = True
             db.session().commit()
             return redirect(url_for("players_index"))
+
 
     if request.form["btn"] == "Change mid!":
         if pl.mid == True:
             pl.mid = False
             db.session().commit()
             return redirect(url_for("players_index"))
+
         if pl.mid == False:
             pl.mid = True
             db.session().commit()
             return redirect(url_for("players_index"))
+
 
     if request.form["btn"] == "Change adc!":
         if pl.adc == True:
             pl.adc = False
             db.session().commit()
             return redirect(url_for("players_index"))
+
         if pl.adc == False:
             pl.adc = True
             db.session().commit()
             return redirect(url_for("players_index"))
+
 
     if request.form["btn"] == "Change sup!":
         if pl.sup == True:
             pl.sup = False
             db.session().commit()
             return redirect(url_for("players_index"))
+
         if pl.sup == False:
             pl.sup = True
             db.session().commit()

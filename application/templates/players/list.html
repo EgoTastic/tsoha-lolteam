@@ -3,51 +3,69 @@
 {% block body %}
   <table>
     <tr>
-      <th>Player</th>
-      <th>Plays top</th>
+      <th>Player tag</th>
       <th></th>
-      <th>Plays jungle</th>
+      <th>Top</th>
       <th></th>
-      <th>Plays middle</th>
       <th></th>
-      <th>Plays adc</th>
+      <th>Jungle</th>
       <th></th>
-      <th>Plays support</th>
+      <th></th>     
+      <th>Middle</th>
+      <th></th>
+      <th></th>
+      <th>ADC</th>
+      <th></th>
+      <th></th>
+      <th>Support</th>
+      <th></th>
+      <th></th>
+      <th>Remove player</th>
     </tr>
     {% for player in players %}
     <tr>
       <td>{{ player.player_tag }}</td>
+      <th></th>
       <td>{{ player.top }}</td>
       <td>
         <form method="POST" action="{{ url_for('players_set', player_id=player.id) }}">
            <input type="submit" name="btn" value="Change top!"/>
         </form>
       </td>
+      <th></th>
       <td>{{ player.jgl }}</td>
       <td>
         <form method="POST" action="{{ url_for('players_set', player_id=player.id) }}">
            <input type="submit" name="btn" value="Change jgl!"/>
         </form>
       </td>
+      <th></th>
       <td>{{ player.mid }}</td>
       <td>
          <form method="POST" action="{{ url_for('players_set', player_id=player.id) }}">
            <input type="submit" name="btn" value="Change mid!"/>
         </form>
       </td>
+      <th></th>
       <td>{{ player.adc }}</td>
       <td>
          <form method="POST" action="{{ url_for('players_set', player_id=player.id) }}">
            <input type="submit" name="btn" value="Change adc!"/>
         </form>
       </td>
+      <th></th>
       <td>{{ player.sup }}</td>
       <td>
-         <form method="POST" action="{{ url_for('players_set', player_id=player.id) }}">
-           <input type="submit" name="btn" value="Change sup!"/>
+        <form method="POST" action="{{ url_for('players_set', player_id=player.id) }}">
+          <input type="submit" name="btn" value="Change sup!"/>
         </form>
       </td>
+      <th></th>
+      <td>
+        <form method="POST" action="{{ url_for('players_set',player_id=player.id) }}">
+          <input type="submit" name="btn" value="Remove player"/>
     </tr>
     {% endfor %}
   </table>
 {% endblock %}
+
