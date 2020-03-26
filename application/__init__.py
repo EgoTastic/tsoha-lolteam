@@ -5,6 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 import os
 
+#Jos herokussa, käytä niiden paikallista db, muuten käytä omaa polkua, modifications false asetuksen puute kaataa kaiken
 if os.environ.get("HEROKU"):
     app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
@@ -23,6 +24,7 @@ from application.players import views
 from application.auth import models
 from application.auth import views
 
+#Login tarpeet
 from application.auth.models import User
 from os import urandom
 app.config["SECRET_KEY"] = urandom(32)
@@ -38,6 +40,7 @@ login_manager.login_message = "Please login to use this functionality."
 def load_user(user_id):
     return User.query.get(user_id)
 
+#Luo tietokanta jos sitä ei ole
 try:
     db.create_all()
 except:

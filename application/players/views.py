@@ -6,11 +6,13 @@ from flask import render_template, request, redirect, url_for
 from application.players.models import Player
 from application.players.forms import PlayerForm
 
+#Uuden pelaajan luomiseen render käsky, ei voi käyttää ilman kirjautumista
 @app.route("/players/new/")
 @login_required
 def players_form():
     return render_template("players/new.html", form = PlayerForm())
 
+#Pelaajan luominen
 @app.route("/players/", methods=["POST"])
 def players_create():
     form = PlayerForm(request.form)
@@ -31,11 +33,13 @@ def players_create():
 
     return redirect(url_for("players_index"))
 
+#Pelaajalistan tulostus redirect
 @app.route("/players/", methods=["GET"])
 @login_required
 def players_index():
     return render_template("players/list.html", players = Player.query.all())
 
+#Statuksen vaihto napin painolla
 @app.route("/players/<player_id>/", methods=["POST"])
 @login_required
 def players_set(player_id):
