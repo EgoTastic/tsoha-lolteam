@@ -22,6 +22,18 @@ Sovelluksessa voi luoda oman tunnuksen, jonka avulla voi määritellä itselleen
 <li>Tietokanta tauluja mietitty hieman uudestaan vastaamaan kurssin tarkoitusta (suurimpana lisäys many-to-many taulu)</li>
 </ul>
 
+<h2>3 viikon aikana toteutetut asiat V0.00.03</h2>
+<ul>
+  <li>Muutettu käyttämään wtformia</li>
+  <li>herokussa siirrytty postresql käyttöön</li>
+  <li>uusi taulu tilejä varten</li>
+  <li>kirjautuminen lisätty ja sivulta piilotettu osia jos ei ole kirjautunut</li>
+  <li>rekisteröinti lisätty</li>
+  <li>uutta pelaajaa luodessa voi etukäteen määritellä roolit, ilman että ne joutuu muuttaa jälkikäteen</li>
+  <li>player taulukolle täysi CRUD, tässä lisättiin playerin poisto</li>
+  <li>päätä taottu seinään</li>
+</ul>
+  
 <h2>User Story</h2>
 <ul>
 <li>Käyttäjänä voin lisätä pelaajatägin ja luodessa valita mitä rooleja pelaa</li>
