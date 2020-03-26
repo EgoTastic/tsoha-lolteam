@@ -4,7 +4,7 @@
   
   Testitunnukset: username = username, password = password
     
-  [Linkki nykyiseen tietokaaviopohjaan](https://github.com/EgoTastic/tsoha-lolteam/blob/master/documentation/Tietokantakaavio%20v2.pdf)
+  [Linkki nykyiseen tietokaaviopohjaan(vanhentunut, ei sisällä account taulun lisäystä)](https://github.com/EgoTastic/tsoha-lolteam/blob/master/documentation/Tietokantakaavio%20v2.pdf)
   
   <h2>Applikaation tavoite</h2>
   
