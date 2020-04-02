@@ -6,7 +6,7 @@ from application.players.models import Player
 #Formi jolla luodaan uusi pelaaja, validointi sääntöinä tyhjät välit ja pituus
 class PlayerForm(FlaskForm):
 
-    def validate_player_tag(form, field):
+    def validate_player_tag(self, form, field):
         if " " in field.data:
             raise validators.ValidationError("Name can not contain empty spaces")
 

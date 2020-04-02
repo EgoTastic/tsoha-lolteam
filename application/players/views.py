@@ -77,7 +77,6 @@ def player_edit():
     status = form.play.data
     if request.form["btn"] == "Change":
         if role == "1":
-            print("DDSDSDSDSDSDSDSDSDSD")
             db.session().query(Player).filter(Player.id == player).update({"top": status})
         if role == "2":
             db.session().query(Player).filter(Player.id == player).update({"jgl": status})
