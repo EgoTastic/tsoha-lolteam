@@ -37,13 +37,42 @@ def players_create():
 @app.route("/players/", methods=["GET"])
 @login_required
 def players_index():
-    return render_template("players/list.html", players = Player.query.all())
+    return render_template("players/list.html", players = Player.query.all(), own_players = Player.query.filter(Player.account_id == current_user.id))
+
+@app.route("/players/top", methods=["GET"])
+@login_required
+def players_index_top():
+    return render_template("players/list.html", players = Player.query.filter(Player.top == True), own_players = Player.query.filter(Player.account_id == current_user.id))
+
+@app.route("/players/jgl", methods=["GET"])
+@login_required
+def players_index_jgl():
+    return render_template("players/list.html", players = Player.query.filter(Player.jgl == True), own_players = Player.query.filter(Player.account_id == current_user.id))
+
+@app.route("/players/mid", methods=["GET"])
+@login_required
+def players_index_mid():
+    return render_template("players/list.html", players = Player.query.filter(Player.mid == True), own_players = Player.query.filter(Player.account_id == current_user.id))
+
+@app.route("/players/adc", methods=["GET"])
+@login_required
+def players_index_adc():
+    return render_template("players/list.html", players = Player.query.filter(Player.adc == True), own_players = Player.query.filter(Player.account_id == current_user.id))
+
+@app.route("/players/sup", methods=["GET"])
+@login_required
+def players_index_sup():
+    return render_template("players/list.html", players = Player.query.filter(Player.sup == True), own_players = Player.query.filter(Player.account_id == current_user.id))
+
 
 #Statuksen vaihto tai pelaajan poisto napin painolla
+
+
 @app.route("/players/<player_id>/", methods=["POST"])
 @login_required
 def players_set(player_id):
     pl = Player.query.get(player_id)
+    print(player_id)
     if request.form["btn"] == "Remove player":
         db.session().delete(pl)
         db.session().commit()
@@ -54,11 +83,12 @@ def players_set(player_id):
             pl.top = False
             db.session().commit()
             return redirect(url_for("players_index"))
+
         if pl.top == False:
             pl.top = True
             db.session().commit()
             return redirect(url_for("players_index"))
-
+    print(player_id)
     if request.form["btn"] == "Change jgl!":
         if pl.jgl == True:
             pl.jgl = False
@@ -70,7 +100,7 @@ def players_set(player_id):
             db.session().commit()
             return redirect(url_for("players_index"))
 
-
+    print(player_id)
     if request.form["btn"] == "Change mid!":
         if pl.mid == True:
             pl.mid = False

@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <h2>Your own teams</h2>
+  <table>
+    <tr>
+      <th>Team name</th>
+      <th></th>
+      <th>Top Player</th>
+      <th></th>
+      <th>Jungle Player</th>
+      <th></th>
+      <th>Middle player</th>
+      <th></th>
+      <th>ADC player</th>
+      <th></th>
+      <th>Support player</th>
+      <th></th>
+      <th>Remove team</th>
+      <th></th>
+      <th>Choose player</th>
+      <th></th>
+      <th>Choose role</th>
+      <th></th>
+      <th>Add player</th>
+      <th></th>
+      <th>Remove role</th>
+    </tr>
+    {% for team in own_teams %}
+    <tr>
+      <td> {{ team.name }} </td>
+      <th></th>
+      <td> {{ team.top }} </td>
+      <th></th>
+      <td> {{ team.jgl }} </td>
+      <th></th>
+      <td> {{ team.mid }} </td>
+      <th></th>
+      <td> {{ team.adc }} </td>
+      <th></th>
+      <td> {{ team.sup }} </td>
+      <th></th>
+      <td>
+        <form method="POST" action="{{ url_for('team_edit', team_id = team.id) }}">
+          <input type="submit" name="btn" value="Remove team"/>
+      </td>
+      <th></th>
+      <td>
+          {{ form.player }}
+      </td>
+      <th></th>
+      <td>
+          {{ form.role }}
+      </td>
+      <th></th>
+      <td>
+        <form method="POST" action="{{ url_for('team_edit', team_id = team.id) }}">
+         <input type="submit" name="btn" value="Add player"/>
+       </td>
+       <th></th>
+       <td>
+         <form method="POST" action="{{ url_for('team_edit', team_id = team.id) }}">
+           <input type="submit" name="btn" value="Remove role"/>
+       </td>
+    </tr>
+    {% endfor %}
+  </table>
+  <h2> Teams </h2>
+  <table>
+    <tr>
+      <th>Team name</th>
+      <th></th>
+      <th>Top player</th>
+      <th></th>
+      <th>Jungle player</th>
+      <th></th>
+      <th>Middle player</th>
+      <th></th>
+      <th>ADC player</th>
+      <th></th>
+      <th>Support player</th>
+    </tr>
+    {% for team in teams %}
+    <tr>
+      <td> {{ team.name }} </td>
+      <th></th>
+      <td> {{ team.top }} </td>
+      <th></th>
+      <td> {{ team.jgl }} </td>
+      <th></th>
+      <td> {{ team.mid }} </td>
+      <th></th>
+      <td> {{ team.adc }} </td>
+      <th></th>
+      <td> {{ team.sup}} </td>
+      <th></th>
+    </tr>
+    
+    {% endfor %}
+  </table>
+{% endblock %}

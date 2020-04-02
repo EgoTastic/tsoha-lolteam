@@ -9,6 +9,7 @@ class LoginForm(FlaskForm):
     class Meta:
         csrf = False
 
+#Rekisteröinti formin koostumus
 class RegisterForm(FlaskForm):
     username = StringField("Username", [validators.Length(min=3, max=12)])
     name = StringField("Name", [validators.Length(min=3, max=12)])
@@ -16,7 +17,7 @@ class RegisterForm(FlaskForm):
 
     def validate_username(form, field):
         if " " in field.data:
-            raise validators.ValidationError("Usernameame can not contain empty spaces")
+            raise validators.ValidationError("Username can not contain empty spaces")
 
     def validate_name(form, field):
         if " " in field.data:

@@ -1,12 +1,11 @@
 from application import db
+from application.models import Base
+from sqlalchemy.sql import text
 
-class Player(db.Model):
+class Player(Base):
     #Tietokannan sisällön määrittely, arvotyypit, voiko olla tyhjä
-    id = db.Column(db.Integer, primary_key=True)
-   
-    date_created = db.Column(db.DateTime, default=db.func.current_timestamp())
-    date_modified = db.Column(db.DateTime, default=db.func.current_timestamp(),
-    onupdate=db.func.current_timestamp())
+
+    __tablename__ = "player"
 
     player_tag = db.Column(db.String(144), nullable=False)
    
@@ -18,6 +17,7 @@ class Player(db.Model):
 
     account_id = db.Column(db.Integer, db.ForeignKey('account.id'), nullable = False)
 
+
     #Uuden playerin luominen
     def __init__(self, player_tag):
         self.player_tag = player_tag
@@ -26,3 +26,8 @@ class Player(db.Model):
         self.mid = False
         self.adc = False
         self.sup = False
+
+
+    @staticmethod
+    def get_player_list():
+        return Player.query

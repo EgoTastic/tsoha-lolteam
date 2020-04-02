@@ -15,8 +15,10 @@
     {% endif %}
 
     <ul>
-    <li><a href="{{ url_for('players_index') }}">List players</a></li>
-    <li><a href="{{ url_for('players_form') }}">Add new player</a></li>
+    <li><a href="{{ url_for('players_index') }}">List and edit players</a></li>
+    <li><a href="{{ url_for('players_form') }}">Add a new player</a></li>
+    <li><a href="{{ url_for('teams_index') }}">List and edit teams</a></li>
+    <li><a href="{{ url_for('teams_form') }}">Add a new team</a></li>
     </ul>
     {% block body %}
       <p>

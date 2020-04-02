@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<form method="POST" action="{{ url_for('teams_create') }}">
+  <table>
+    <tr>
+      <td>
+        {{ form.name.label }}
+      </td>
+      <td>
+        {{ form.name }}
+      </td>
+      <td>
+        <ul>
+          {% for error in form.name.errors %}
+          <li> {{ error }} </li>
+          {% endfor %}
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td colspan= "3">
+        <input type="submit" value="Add new team"/>
+      </td>
+    </tr>
+</form>
+{% endblock %}

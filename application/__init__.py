@@ -24,6 +24,11 @@ from application.players import views
 from application.auth import models
 from application.auth import views
 
+from application.teams import models
+from application.teams import views
+
+from application.teammates import models
+
 #Login tarpeet
 from application.auth.models import User
 from os import urandom

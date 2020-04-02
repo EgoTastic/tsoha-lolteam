@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 
 {% block body %}
+  <h2>Your own players</h2>
   <table>
     <tr>
       <th>Player tag</th>
@@ -22,15 +23,15 @@
       <th></th>
       <th>Remove player</th>
     </tr>
-    {% for player in players %}
+    {% for player in own_players %}
     <tr>
       <td>{{ player.player_tag }}</td>
-      <th></th>
+      <th>{{ player.id }}</th>
       <td>{{ player.top }}</td>
       <td>
         <form method="POST" action="{{ url_for('players_set', player_id=player.id) }}">
-           <input type="submit" name="btn" value="Change top!"/>
-        </form>
+          <input type="submit" name="btn" value="Change top!"/>
+       </form>
       </td>
       <th></th>
       <td>{{ player.jgl }}</td>
@@ -66,6 +67,55 @@
           <input type="submit" name="btn" value="Remove player"/>
     </tr>
     {% endfor %}
+
   </table>
+  
+  <h3>Which role you want to see?</h3>
+  <table>
+    <tr>
+      <td><a href="{{ url_for('players_index') }}">List all players</a></td>
+      <th></th>
+      <td><a href="{{ url_for('players_index_top') }}">List top players</a></td>
+      <th></th>
+      <td><a href="{{ url_for('players_index_jgl') }}">List jungle players</a></td>
+      <th></th>
+      <td><a href="{{ url_for('players_index_mid') }}">List mid players</a></td>
+      <th></th>
+      <td><a href="{{ url_for('players_index_adc') }}">List adc players</a></td>
+      <th></th>
+      <td><a href="{{ url_for('players_index_sup') }}">List support players</a></td>
+    </tr>
+  </table>
+  
+  <h2>Players</h2>
+  <table>
+    <tr>
+      <th>Player tag</th>
+      <th></th>
+      <th>Top</th>
+      <th></th>
+      <th>Jungle</th>
+      <th></th>
+      <th>Middle</th>
+      <th></th>
+      <th>ADC</th>
+      <th></th>
+      <th>Support</th>
+    </tr>
+    {% for player in players %}
+    <tr>
+      <td> {{ player.player_tag }} </td>
+      <th></th>
+      <td> {{ player.top }} </td>
+      <th></th>
+      <td> {{ player.jgl }} </td>
+      <th></th>
+      <td> {{ player.mid }} </td>
+      <th></th>
+      <td> {{ player.adc }} </td>
+      <th></th>
+      <td> {{ player.sup }} </td>
+    <tr>
+    {% endfor %}
 {% endblock %}
 
