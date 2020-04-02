@@ -37,7 +37,7 @@ def players_create():
 @app.route("/players/", methods=["GET"])
 @login_required
 def players_index():
-    return render_template("players/list.html", form = PlayerEditForm() , players = Player.query.all(), own_players = Player.query.filter(Player.account_id == current_user.id))
+    return render_template("players/list.html", form = PlayerEditForm() , players = Player.query.order_by(Player.id).all(), own_players = Player.query.filter(Player.account_id == current_user.id))
 
 @app.route("/players/top", methods=["GET"])
 @login_required
