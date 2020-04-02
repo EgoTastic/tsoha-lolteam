@@ -1,5 +1,6 @@
 from application import db
 from application.models import Base
+from flask_login import login_required, current_user
 
 class Team(Base):
     
@@ -10,3 +11,12 @@ class Team(Base):
     #Uuden tiimin luominen
     def __init__(self, name):
         self.name = name
+
+
+    @staticmethod
+    def get_own_teams():
+        if current_user == None:
+            id = 0
+        else:
+            id = current_user.id
+        return Team.query.filter(Team.account_id == id)

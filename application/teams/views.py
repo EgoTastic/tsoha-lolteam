@@ -129,29 +129,24 @@ def teams_index():
 
     return render_template("teams/list.html", teams = teamslist, own_teams = ownlist, form = TeammateForm())
 
-@app.route("/teams/<team_id>/", methods=["POST"])
+@app.route("/teams/edit", methods=["POST"])
 @login_required
-def team_edit(team_id):
-    tm = Team.query.get(team_id)
-    if request.form["btn"] == "Remove team":
-        db.session().query(Teammate).filter(Teammate.team_id==team_id).delete()
-        db.session().delete(tm)
-        db.session().commit()
-        return redirect(url_for("teams_index"))
-    if request.form["btn"] == "Add player":
-        form = TeammateForm(request.form)
-        role = form.role.data
-        player_name = "" + form.player.data.player_tag
+def team_edit():
+    form = TeammateForm(request.form)
+    team = form.team.data.id
+    role = form.role.data
+    player = form.player.data.id
 
-        statement = text("SELECT player.id FROM player WHERE player.player_tag = :player").params(player=player_name)
-        result = db.engine.execute(statement)
-        for row in result:
-            db.session().query(Teammate).filter(Teammate.team_id == team_id, Teammate.role == role).update({"player": row[0]})
+    if request.form["btn"] == "Remove team":
+        db.session().query(Team).filter(Team.id == team).delete()
+        db.session().query(Teammate).filter(Teammate.team_id == team).delete()
         db.session().commit()
-        return redirect(url_for("teams_index"))
+
+    if request.form["btn"] == "Add player":
+        db.session().query(Teammate).filter(Teammate.team_id == team, Teammate.role == role).update({"player": player})
+        db.session().commit()
+
     if request.form["btn"] == "Remove role":
-        form = TeammateForm(request.form)
-        role = form.role.data
-        db.session().query(Teammate).filter(Teammate.team_id, Teammate.role == role).update({"player": None})
+        db.session().query(Teammate).filter(Teammate.team_id == team, Teammate.role == role).update({"player": None})
         db.session().commit()
     return redirect(url_for("teams_index"))

@@ -1,6 +1,7 @@
 from application import db
 from application.models import Base
 from sqlalchemy.sql import text
+from flask_login import login_required, current_user
 
 class Player(Base):
     #Tietokannan sisällön määrittely, arvotyypit, voiko olla tyhjä
@@ -31,3 +32,11 @@ class Player(Base):
     @staticmethod
     def get_player_list():
         return Player.query
+
+    @staticmethod
+    def get_own_players():
+        if current_user == None:
+            id = 0
+        else:
+            id = current_user.id
+        return Player.query.filter(Player.account_id == id)

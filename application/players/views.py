@@ -4,7 +4,7 @@ from flask_login import login_required, current_user
 from flask import render_template, request, redirect, url_for
 
 from application.players.models import Player
-from application.players.forms import PlayerForm
+from application.players.forms import PlayerForm, PlayerEditForm
 
 #Uuden pelaajan luomiseen render käsky, ei voi käyttää ilman kirjautumista
 @app.route("/players/new/")
@@ -37,7 +37,7 @@ def players_create():
 @app.route("/players/", methods=["GET"])
 @login_required
 def players_index():
-    return render_template("players/list.html", players = Player.query.all(), own_players = Player.query.filter(Player.account_id == current_user.id))
+    return render_template("players/list.html", form = PlayerEditForm() , players = Player.query.all(), own_players = Player.query.filter(Player.account_id == current_user.id))
 
 @app.route("/players/top", methods=["GET"])
 @login_required
@@ -68,70 +68,27 @@ def players_index_sup():
 #Statuksen vaihto tai pelaajan poisto napin painolla
 
 
-@app.route("/players/<player_id>/", methods=["POST"])
+@app.route("/players/edit", methods=["POST"])
 @login_required
-def players_set(player_id):
-    pl = Player.query.get(player_id)
-    print(player_id)
+def player_edit():
+    form = PlayerEditForm(request.form)
+    player = form.player.data.id
+    role = form.role.data
+    status = form.play.data
+    if request.form["btn"] == "Change":
+        if role == "1":
+            print("DDSDSDSDSDSDSDSDSDSD")
+            db.session().query(Player).filter(Player.id == player).update({"top": status})
+        if role == "2":
+            db.session().query(Player).filter(Player.id == player).update({"jgl": status})
+        if role == "3":
+            db.session().query(Player).filter(Player.id == player).update({"mid": status})
+        if role == "4":
+            db.session().query(Player).filter(Player.id == player).update({"adc": status})
+        if role == "5":
+            db.session().query(Player).filter(Player.id == player).update({"sup": status})
     if request.form["btn"] == "Remove player":
-        db.session().delete(pl)
-        db.session().commit()
-        return redirect(url_for("players_index"))
-        
-    if request.form["btn"] == "Change top!":
-        if pl.top == True:
-            pl.top = False
-            db.session().commit()
-            return redirect(url_for("players_index"))
+        db.session().query(Player).filter(Player.id == player).delete()
 
-        if pl.top == False:
-            pl.top = True
-            db.session().commit()
-            return redirect(url_for("players_index"))
-    print(player_id)
-    if request.form["btn"] == "Change jgl!":
-        if pl.jgl == True:
-            pl.jgl = False
-            db.session().commit()
-            return redirect(url_for("players_index"))
-
-        if pl.jgl == False:
-            pl.jgl = True
-            db.session().commit()
-            return redirect(url_for("players_index"))
-
-    print(player_id)
-    if request.form["btn"] == "Change mid!":
-        if pl.mid == True:
-            pl.mid = False
-            db.session().commit()
-            return redirect(url_for("players_index"))
-
-        if pl.mid == False:
-            pl.mid = True
-            db.session().commit()
-            return redirect(url_for("players_index"))
-
-
-    if request.form["btn"] == "Change adc!":
-        if pl.adc == True:
-            pl.adc = False
-            db.session().commit()
-            return redirect(url_for("players_index"))
-
-        if pl.adc == False:
-            pl.adc = True
-            db.session().commit()
-            return redirect(url_for("players_index"))
-
-
-    if request.form["btn"] == "Change sup!":
-        if pl.sup == True:
-            pl.sup = False
-            db.session().commit()
-            return redirect(url_for("players_index"))
-
-        if pl.sup == False:
-            pl.sup = True
-            db.session().commit()
-            return redirect(url_for("players_index"))
+    db.session().commit()
+    return redirect(url_for("players_index"))

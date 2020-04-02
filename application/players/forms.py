@@ -1,5 +1,7 @@
 from flask_wtf import FlaskForm
-from wtforms import BooleanField, StringField, validators
+from wtforms import BooleanField, SelectField, StringField, validators
+from wtforms.ext.sqlalchemy.fields import QuerySelectField
+from application.players.models import Player
 
 #Formi jolla luodaan uusi pelaaja, validointi sääntöinä tyhjät välit ja pituus
 class PlayerForm(FlaskForm):
@@ -15,6 +17,15 @@ class PlayerForm(FlaskForm):
     mid = BooleanField("Mid Lane")
     adc = BooleanField("ADC")
     sup = BooleanField("Support")
+
+    class Meta:
+        csrf = False
+
+class PlayerEditForm(FlaskForm):
+
+    player = QuerySelectField(u'Player', query_factory=Player.get_own_players, get_label='player_tag')
+    role = SelectField(u'Role', choices=[('1','Top'), ('2','Jungle'), ('3','Middle'),('4','ADC'),('5','Support')])
+    play = BooleanField("Plays role")
 
     class Meta:
         csrf = False
