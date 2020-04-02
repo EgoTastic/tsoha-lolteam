@@ -4,19 +4,23 @@
   
   Testitunnukset: username = username, password = password
     
-  [Linkki nykyiseen tietokaaviopohjaan(vanhentunut, ei sisällä account taulun lisäystä)](https://github.com/EgoTastic/tsoha-lolteam/blob/master/documentation/Tietokantakaavio%20v2.pdf)
+  [Linkki nykyiseen tietokantakaavioon](https://github.com/EgoTastic/tsoha-lolteam/blob/master/documentation/Tietokantakaavio%20v3.png)
   
-  [Linkki user storyyn]()
+  [Linkki user storyyn](https://github.com/EgoTastic/tsoha-lolteam/blob/master/documentation/User%20Storyt.md)
   
 ## Applikaation tavoite
   
 Tarkoitus luoda sovellus, jolla käyttäjä voi luoda itselleen profiilin ja määritellä preferoimansa rooli tiimissä (top/jungle/mid/adc/support)  
-Sovelluksessa voi luoda oman tunnuksen, jonka avulla voi määritellä itselleen oman pelaajatägin mitä käyttää League of Legendsissä, sen lisäksi voi määrittää mitä eri pelin rooleja pelaa. Sovelluksessa voi luoda tiimejä ja täyttää tiimin 5 eri roolia pelaajilla. Tiimin puuttuvia rooleja voi etsiä pelaajien joukosta, etsimällä kyseistä roolia pelaavia pelaajia. Toiminnallisuuteen voi mahdollisesti lisätä myös filtteröintiä pelaajan ränkin perusteella tai vastaavaa.  
+Sovelluksessa voi luoda oman tunnuksen, jonka avulla voi määritellä itselleen oman pelaajatägin mitä käyttää League of Legendsissä, sen lisäksi voi määrittää mitä eri pelin rooleja pelaa. Sovelluksessa voi luoda tiimejä ja täyttää tiimin 5 eri roolia pelaajilla. Tiimin puuttuvia rooleja voi etsiä pelaajien joukosta, etsimällä kyseistä roolia pelaavia pelaajia. Pelaajia voi myös poistaa tiimistään. Toiminnallisuuteen voi mahdollisesti lisätä myös filtteröintiä pelaajan ränkin perusteella tai vastaavaa.  
   
-Account taulussa on id, luonti ja muokkaus pvm, nimi, käyttäjätunnus, salasana ja relaatio playeriin. 
-Tauluja on neljä Player, jossa on player_id, login_name, player_tag (eli LoL käyttäjänimi), salasana, roolipreferenssit ja hakeeko tiimiä, sekä minkä tilin luoma player on. 
-Team taulussa on tiimin id sekä nimi. 
-Viimeisenä liitostaulu pelaajien ja tiimien välillä mikä kertoo myös roolin tiimissä.
+## Tietokantarakenne
+
+- Account taulussa on id, luonti ja muokkaus pvm, nimi, käyttäjätunnus, salasana ja relaatio playeriin. 
+- Tauluja on neljä Player, jossa on player_id, login_name, player_tag (eli LoL käyttäjänimi), salasana, roolipreferenssit ja hakeeko tiimiä, sekä minkä tilin luoma player on. 
+- Team taulussa on tiimin id sekä nimi. 
+- Viimeisenä liitostaulu pelaajien ja tiimien välillä mikä kertoo myös roolin tiimissä.
+[Linkki nykyiseen tietokantakaavioon](https://github.com/EgoTastic/tsoha-lolteam/blob/master/documentation/Tietokantakaavio%20v3.png)
+
 
 
 ## 4 viikon aukana toteutetut asiat V0.00.04
