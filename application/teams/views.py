@@ -138,8 +138,8 @@ def team_edit():
     player = form.player.data.id
 
     if request.form["btn"] == "Remove team":
-        db.session().query(Team).filter(Team.id == team).delete()
         db.session().query(Teammate).filter(Teammate.team_id == team).delete()
+        db.session().query(Team).filter(Team.id == team).delete()
         db.session().commit()
 
     if request.form["btn"] == "Add player":
