@@ -10,7 +10,7 @@ class PlayerForm(FlaskForm):
         if " " in field.data:
             raise validators.ValidationError("Name can not contain empty spaces")
 
-    player_tag = StringField("Player name", [validators.Length(min=3)])
+    player_tag = StringField("Player name", [validators.Length(min=3, max=20)])
     
     top = BooleanField("Top Lane")
     jgl = BooleanField("Jungle")

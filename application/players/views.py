@@ -42,27 +42,27 @@ def players_index():
 @app.route("/players/top", methods=["GET"])
 @login_required
 def players_index_top():
-    return render_template("players/list.html", players = Player.query.filter(Player.top == True), own_players = Player.query.filter(Player.account_id == current_user.id))
+    return render_template("players/list.html", form = PlayerEditForm(), players = Player.query.filter(Player.top == True), own_players = Player.query.filter(Player.account_id == current_user.id))
 
 @app.route("/players/jgl", methods=["GET"])
 @login_required
 def players_index_jgl():
-    return render_template("players/list.html", players = Player.query.filter(Player.jgl == True), own_players = Player.query.filter(Player.account_id == current_user.id))
+    return render_template("players/list.html", form = PlayerEditForm(), players = Player.query.filter(Player.jgl == True), own_players = Player.query.filter(Player.account_id == current_user.id))
 
 @app.route("/players/mid", methods=["GET"])
 @login_required
 def players_index_mid():
-    return render_template("players/list.html", players = Player.query.filter(Player.mid == True), own_players = Player.query.filter(Player.account_id == current_user.id))
+    return render_template("players/list.html", form = PlayerEditForm(), players = Player.query.filter(Player.mid == True), own_players = Player.query.filter(Player.account_id == current_user.id))
 
 @app.route("/players/adc", methods=["GET"])
 @login_required
 def players_index_adc():
-    return render_template("players/list.html", players = Player.query.filter(Player.adc == True), own_players = Player.query.filter(Player.account_id == current_user.id))
+    return render_template("players/list.html", form = PlayerEditForm(), players = Player.query.filter(Player.adc == True), own_players = Player.query.filter(Player.account_id == current_user.id))
 
 @app.route("/players/sup", methods=["GET"])
 @login_required
 def players_index_sup():
-    return render_template("players/list.html", players = Player.query.filter(Player.sup == True), own_players = Player.query.filter(Player.account_id == current_user.id))
+    return render_template("players/list.html", form = PlayerEditForm(), players = Player.query.filter(Player.sup == True), own_players = Player.query.filter(Player.account_id == current_user.id))
 
 
 #Statuksen vaihto tai pelaajan poisto napin painolla
@@ -72,6 +72,8 @@ def players_index_sup():
 @login_required
 def player_edit():
     form = PlayerEditForm(request.form)
+    if form.player.data == None:
+        return redirect(url_for("players_index"))
     player = form.player.data.id
     role = form.role.data
     status = form.play.data
