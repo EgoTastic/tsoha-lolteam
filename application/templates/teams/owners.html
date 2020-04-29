@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<h2>Teams and their owners</h2>
+
+<table>
+    <tr>
+        <th>Team name</th>
+        <th></th>
+        <th>Owner</th>
+    </tr>
+    {% for team in teams %}
+        <tr>
+            <td>{{ team.name }}</td>
+            <th></th>
+            <td>{{ team.owner }}</td>
+        </tr>
+    {% endfor %}
+    
+</table>
+
+
+{% endblock %}

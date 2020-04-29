@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<h2>List of players without a team at the moment</h2>
+
+<table>
+    <tr>
+        <th>Playertag</th>
+        <th></th>  
+        <th>Top</th>
+        <th></th> 
+        <th>Jungle</th>
+        <th></th> 
+        <th>Mid</th>
+        <th></th> 
+        <th>ADC</th>
+        <th></th>
+        <th>Support</th> 
+    </tr>
+    {% for player in noteamplayers %}
+    <tr>
+        <td>{{ player.tag }}</td>
+        <th></th>
+        <td> {{ player.top }}</td>
+        <th></th>
+        <td> {{ player.jgl }}</td>
+        <th></th>
+        <td> {{ player.mid }}</td>   
+        <th></th>
+        <td> {{ player.adc }}</td>  
+        <th></th>
+        <td> {{ player.sup }}</td>            
+    </tr>
+    {% endfor %}
+</table>
+
+
+{% endblock %}

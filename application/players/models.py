@@ -40,3 +40,17 @@ class Player(Base):
         else:
             id = current_user.id
         return Player.query.filter(Player.account_id == id)
+
+    @staticmethod
+    def get_players_noteam():
+        stmt = text("SELECT player.player_tag, player.top, player.jgl, player.mid, player.adc, player.sup FROM Player LEFT JOIN teammate ON teammate.player = player.id GROUP BY player.player_tag HAVING COUNT(teammate.player) = 0")
+        res = db.engine.execute(stmt)
+        response = []
+        for row in res:
+            top = row[1] == 1
+            jgl = row[2] == 1
+            mid = row[3] == 1
+            adc = row[4] == 1
+            sup = row[5] == 1
+            response.append({"tag":row[0], "top":top, "jgl":jgl, "mid":mid, "adc":adc, "sup":sup})
+        return response

@@ -9,10 +9,15 @@ from application.teammates.forms import TeammateForm
 from application.teammates.models import Teammate
 from application.players.models import Player
 
-@app.route("/teams/new")
+@app.route("/teams/new/")
 @login_required
 def teams_form():
     return render_template("teams/new.html", form = TeamForm())
+
+@app.route("/teams/owners/")
+@login_required
+def team_owners():
+    return render_template("teams/owners.html", teams = Team.team_owners())
 
 #Tiimin luominen
 @app.route("/teams/", methods=["POST"])

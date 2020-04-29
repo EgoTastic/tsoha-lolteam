@@ -12,6 +12,11 @@ from application.players.forms import PlayerForm, PlayerEditForm
 def players_form():
     return render_template("players/new.html", form = PlayerForm())
 
+@app.route("/players/teamless/")
+@login_required
+def teamless_players():
+    return render_template("players/teamless.html", noteamplayers = Player.get_players_noteam())
+
 #Pelaajan luominen
 @app.route("/players/", methods=["POST"])
 def players_create():
