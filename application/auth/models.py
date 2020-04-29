@@ -9,6 +9,7 @@ class User(Base):
     name = db.Column(db.String(144), nullable=False)
     username = db.Column(db.String(144), nullable=False)
     password = db.Column(db.String(144), nullable=False)
+    role = db.Column(db.String(144), nullable=False)
 
     players = db.relationship("Player", backref='account', lazy=True)
 
@@ -16,6 +17,7 @@ class User(Base):
         self.name = name
         self.username = username
         self.password = password
+        self.role = "USER"
   
     def get_id(self):
         return self.id
@@ -28,3 +30,6 @@ class User(Base):
 
     def is_authenticated(self):
         return True
+
+    def roles(self):
+        return [self.role]

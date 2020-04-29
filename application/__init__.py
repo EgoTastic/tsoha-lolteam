@@ -16,6 +16,42 @@ else:
 
 db = SQLAlchemy(app)
 
+#Login tarpeet
+from os import urandom
+app.config["SECRET_KEY"] = urandom(32)
+
+from flask_login import LoginManager, current_user
+login_manager = LoginManager()
+login_manager.init_app(app)
+
+login_manager.login_view = "auth_login"
+login_manager.login_message = "Please login to use this functionality."
+
+
+from functools import wraps
+
+def login_required(_func=None, *, role="ANY"):
+    print("loggari000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000")
+    def wrapper(func):
+        @wraps(func)
+        def decorated_view(*args, **kwargs):
+            
+            if not (current_user and current_user.is_authenticated):
+                
+                return login_manager.unauthorized()
+
+            acceptable_roles = set(("ANY", *current_user.roles()))
+            print(acceptable_roles)
+            if role not in acceptable_roles:
+                print("00000000000000000000000000000000000000000000000000000000000000000")
+                return login_manager.unauthorized()
+
+            return func(*args, **kwargs)
+        return decorated_view
+    return wrapper if _func is None else wrapper(_func)
+
+
+
 from application import views
 
 from application.players import models
@@ -29,18 +65,7 @@ from application.teams import views
 
 from application.teammates import models
 
-#Login tarpeet
 from application.auth.models import User
-from os import urandom
-app.config["SECRET_KEY"] = urandom(32)
-
-from flask_login import LoginManager
-login_manager = LoginManager()
-login_manager.init_app(app)
-
-login_manager.login_view = "auth_login"
-login_manager.login_message = "Please login to use this functionality."
-
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(user_id)

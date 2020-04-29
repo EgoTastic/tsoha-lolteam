@@ -1,7 +1,7 @@
-from application import app, db
+from application import app, db, login_required
 
 from flask import render_template, request, redirect, url_for
-from flask_login import login_required, current_user
+from flask_login import current_user
 from sqlalchemy.sql import text
 from application.teams.models import Team
 from application.teams.forms import TeamForm
@@ -12,11 +12,13 @@ from application.players.models import Player
 @app.route("/teams/new/")
 @login_required
 def teams_form():
+    print("lol000000000000000000000000000000000000000")
     return render_template("teams/new.html", form = TeamForm())
 
 @app.route("/teams/owners/")
-@login_required
+@login_required(role="ADMIN")
 def team_owners():
+    print("test000000000000000000000000000000000000000")
     return render_template("teams/owners.html", teams = Team.team_owners())
 
 #Tiimin luominen
@@ -138,20 +140,29 @@ def teams_index():
 @login_required
 def team_edit():
     form = TeammateForm(request.form)
+    if (form.team.data == None):
+        return redirect(url_for("teams_index"))
+    
     team = form.team.data.id
     role = form.role.data
-    player = form.player.data.id
+
+
+    if request.form["btn"] == "Remove role":
+        db.session().query(Teammate).filter(Teammate.team_id == team, Teammate.role == role).update({"player": None})
+        db.session().commit()
 
     if request.form["btn"] == "Remove team":
         db.session().query(Teammate).filter(Teammate.team_id == team).delete()
         db.session().query(Team).filter(Team.id == team).delete()
         db.session().commit()
 
-    if request.form["btn"] == "Add player":
+    if (form.player.data == None):
+        return redirect(url_for("teams_index"))    
+    player = form.player.data.id
+
+    if request.form["btn"] == "Set player":
         db.session().query(Teammate).filter(Teammate.team_id == team, Teammate.role == role).update({"player": player})
         db.session().commit()
 
-    if request.form["btn"] == "Remove role":
-        db.session().query(Teammate).filter(Teammate.team_id == team, Teammate.role == role).update({"player": None})
-        db.session().commit()
+
     return redirect(url_for("teams_index"))
