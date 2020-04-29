@@ -5,6 +5,7 @@ from flask import render_template, request, redirect, url_for
 
 from application.players.models import Player
 from application.players.forms import PlayerForm, PlayerEditForm
+from application.teammates.models import Teammate
 
 #Uuden pelaajan luomiseen render käsky, ei voi käyttää ilman kirjautumista
 @app.route("/players/new/")
@@ -94,7 +95,9 @@ def player_edit():
         if role == "5":
             db.session().query(Player).filter(Player.id == player).update({"sup": status})
     if request.form["btn"] == "Remove player":
+        db.session().query(Teammate).filter(Teammate.player == player).update({"player": None})
         db.session().query(Player).filter(Player.id == player).delete()
+
 
     db.session().commit()
     return redirect(url_for("players_index"))
