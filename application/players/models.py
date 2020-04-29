@@ -43,7 +43,7 @@ class Player(Base):
 
     @staticmethod
     def get_players_noteam():
-        stmt = text("SELECT player.player_tag, player.top, player.jgl, player.mid, player.adc, player.sup FROM Player LEFT JOIN teammate ON teammate.player = player.id GROUP BY player.player_tag HAVING COUNT(teammate.player) = 0")
+        stmt = text("SELECT player.player_tag, player.top, player.jgl, player.mid, player.adc, player.sup FROM Player LEFT JOIN teammate ON teammate.player = player.id WHERE player.id NOT IN (SELECT player FROM teammate WHERE player NOTNULL)")
         res = db.engine.execute(stmt)
         response = []
         for row in res:
