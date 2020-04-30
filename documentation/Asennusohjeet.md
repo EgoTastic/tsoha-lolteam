@@ -87,5 +87,5 @@ heroku pg:psql -a ohjelmasi_nimi_herokussa
 Tämän jälkeen voit lisätä admin tilin itsellesi aiempaan tapaan:
 
 ```
-INSERT INTO account (name, username, password, role) VALUES ("haluttu_nimi", "haluttu_käyttäjänimi", "haluttu_salasana", "ADMIN")
+INSERT INTO account (name, username, password, role) VALUES ("haluttu_nimi", "haluttu_käyttäjänimi", "haluttu_salasana", "ADMIN");
 ```
