@@ -8,9 +8,9 @@
   
   [Linkki user storyyn](https://github.com/EgoTastic/tsoha-lolteam/blob/master/documentation/User%20Storyt.md)
   
-  [Linkki asennusohjeisiin]()
+  [Linkki asennusohjeisiin](https://github.com/EgoTastic/tsoha-lolteam/blob/master/documentation/Asennusohjeet.md)
   
-  [Linkki käyttöohjeisiin]()
+  [Linkki käyttöohjeisiin](https://github.com/EgoTastic/tsoha-lolteam/blob/master/documentation/Kayttoohjeet.md)
   
 ## Applikaation tavoite
   
@@ -23,9 +23,13 @@ Sovelluksessa voi luoda oman tunnuksen, jonka avulla voi määritellä itselleen
 - Tauluja on neljä Player, jossa on player_id, login_name, player_tag (eli LoL käyttäjänimi), salasana, roolipreferenssit ja hakeeko tiimiä, sekä minkä tilin luoma player on. 
 - Team taulussa on tiimin id sekä nimi. 
 - Viimeisenä liitostaulu pelaajien ja tiimien välillä mikä kertoo myös roolin tiimissä.
+<<<<<<< HEAD
 [Linkki nykyiseen tietokantakaavioon](https://github.com/EgoTastic/tsoha-lolteam/blob/master/documentation/Tietokantakaavio%20v3.png)
 [Tietokannan CREATE TABLE komennot]()
 
+=======
+[Linkki nykyiseen tietokantakaavioon](https://github.com/EgoTastic/tsoha-lolteam/blob/master/documentation/tietokantakaavio%20v3.pdf)
+>>>>>>> 076d27c73fe55507cd42ac2b8c2d74c70441affb
 
 ## 7 viikon aikana toteutetut asiat V0.00.07
 - Listitty kaikki löydetyt ongelmat sekä lokaalista että herokusta
