@@ -22,7 +22,13 @@ Aja komento kansion juuressa.
 
 ### Sovelluksen käynnistäminen
 
-Käynnistä virtuaaliympäristö juuressa ajettavalla komennolla:
+Luo python virtuaaliympäristö ajamalla seuraava komento kansion juuressa:
+
+```
+python3 -m venv venv
+```
+
+Käynnistä virtuaaliympäristö komennolla:
 
 ```
 source venv/bin/activate

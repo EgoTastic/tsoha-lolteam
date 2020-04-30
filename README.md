@@ -1,4 +1,4 @@
-# LoL-tiimien koostaminen ja tiimikavereiden etsiminen
+# League of Legends TeamBuilder
   
   [Linkki herokuun jossa appi on deployattu](https://tsohateambuilder.herokuapp.com)  
   
@@ -20,10 +20,11 @@
   
   [Linkki käyttöohjeisiin](https://github.com/EgoTastic/tsoha-lolteam/blob/master/documentation/Kayttoohjeet.md)
   
-## Applikaation tavoite
+## Applikaatio lyhyesti
   
-Tarkoitus luoda sovellus, jolla käyttäjä voi luoda itselleen profiilin ja määritellä preferoimansa rooli tiimissä (top/jungle/mid/adc/support)  
-Sovelluksessa voi luoda oman tunnuksen, jonka avulla voi määritellä itselleen oman pelaajatägin mitä käyttää League of Legendsissä, sen lisäksi voi määrittää mitä eri pelin rooleja pelaa. Sovelluksessa voi luoda tiimejä ja täyttää tiimin 5 eri roolia pelaajilla. Tiimin puuttuvia rooleja voi etsiä pelaajien joukosta, etsimällä kyseistä roolia pelaavia pelaajia. Pelaajia voi myös poistaa tiimistään. Toiminnallisuuteen voi mahdollisesti lisätä myös filtteröintiä pelaajan ränkin perusteella tai vastaavaa.  
+Sovellus mahdollistaa pelikavereiden ja tiimien etisimisen sekä koostamisen. 
+Sovelluksessa voi luoda oman tunnuksen, jonka avulla voi määritellä itselleen omat tilit mitä käyttää League of Legendsissä, sen lisäksi voi määrittää mitä eri pelin rooleja pelaa. 
+Voit luoda tiimejä ja täyttää tiimin 5 eri roolia pelaajilla ja tiimin puuttuvia rooleja voi etsiä pelaajien joukosta, etsimällä kyseistä roolia pelaavia pelaajia. 
   
 ## Tietokantarakenne
 
@@ -34,15 +35,17 @@ Sovelluksessa voi luoda oman tunnuksen, jonka avulla voi määritellä itselleen
 [Linkki nykyiseen tietokantakaavioon](https://github.com/EgoTastic/tsoha-lolteam/blob/master/documentation/Tietokantakaavio%20v4.png)
 [Tietokannan CREATE TABLE komennot](https://github.com/EgoTastic/tsoha-lolteam/blob/master/documentation/taulujenluonti.md)
 
-## 7 viikon aikana toteutetut asiat V0.00.07
+## Projektin edistyminen
+
+### 7 viikon aikana toteutetut asiat V0.00.07
 - Listitty kaikki löydetyt ongelmat sekä lokaalista että herokusta
 - Lisätty kaksi yhteenvetokyselyä, toinen pelaajista joilla ei tiimiä ja toinen tiimeistä ja niiden omistajista
 - Tileillä nyt kahta eri tasoa, admin ja user. Erona se että vain admin näkee tiimien omistajatilit
 - Dokumentaatiota edistetty loppuun
 
-## 5 ja 6 viikon aikana ei edistymistä
+### 5 ja 6 viikon aikana ei edistymistä
 
-## 4 viikon aikana toteutetut asiat V0.00.04
+### 4 viikon aikana toteutetut asiat V0.00.04
 
 - liitostaulu teammates lisätty, yhdistää pelaajan tiimiin ja ilmaisee roolin
 - abstrakti luokka toteutettu
@@ -52,7 +55,7 @@ Sovelluksessa voi luoda oman tunnuksen, jonka avulla voi määritellä itselleen
 - raa'at sql kyselyt toteutettu parametreilla
 - bootsrapilla muokattu ulkoasua (alkeellisesti)
 
-## 3 viikon aikana toteutetut asiat V0.00.03
+### 3 viikon aikana toteutetut asiat V0.00.03
 
 - Muutettu käyttämään wtformia
 - herokussa siirrytty postresql käyttöön
@@ -64,7 +67,7 @@ Sovelluksessa voi luoda oman tunnuksen, jonka avulla voi määritellä itselleen
 - päätä taottu seinään
 
 
-## 2 viikon aikana toteutetut asiat V0.00.02
+### 2 viikon aikana toteutetut asiat V0.00.02
 
 - perustoiminnallisuus, sisältäen pelaajan lisäämisen, listaamisen, muokkaamisen sekä valikon
 - Tarvittava taulu, joka nykyisessä muodossa sisältää vain pelaajan id, muokkaustiedot, player tägin, sekä tiedot pelaako mitä rooleja

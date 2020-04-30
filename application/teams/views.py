@@ -35,7 +35,7 @@ def teams_create():
     db.session().add(tm)
     db.session().commit()
 
-    
+    #Luodaan liitostauluun paikat tiimille (Jäävät alussa "Free" asetukselle)
     team_id = tm.id
     mate1 = Teammate(team_id)
     mate1.role = 1
@@ -65,6 +65,8 @@ def teams_index():
     
     teamslist = []
     ownlist = []
+    
+    #Oman tilin omistamien tiimien listan koostaminen
     statement = text("SELECT team.name, team.id FROM team WHERE team.account_id = :id").params(id = current_user.id)
     result = db.engine.execute(statement)
     for row in result:
@@ -100,6 +102,7 @@ def teams_index():
      
         ownlist.append({"name":row[0], "top":top, "jgl":jgl, "mid":mid, "adc":adc, "sup":sup, "id":row[1]})
 
+    #Kaikkien tiimien listan koostaminen
     statement = text("SELECT team.name, team.id FROM team")
     result = db.engine.execute(statement)
     for row in result:

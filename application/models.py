@@ -1,7 +1,8 @@
 from application import db
 
+#Abstrakti luokka mitä muut luokat noudattavat (Sisältää primääriavaimen ja päivämäärien lisäyksen tietokantaan)
 class Base(db.Model):
-
+   
     __abstract__ = True
 
     id = db.Column(db.Integer, primary_key=True)

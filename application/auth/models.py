@@ -1,7 +1,7 @@
 from application import db
 from application.models import Base
 
-#accountin tietokannan määrittely
+#Tilin tietokannan määrittely
 class User(Base):
 
     __tablename__ = "account"
@@ -17,6 +17,7 @@ class User(Base):
         self.name = name
         self.username = username
         self.password = password
+        #Roolina luodaan vakiona USER tason käyttäjä
         self.role = "USER"
   
     def get_id(self):

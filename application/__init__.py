@@ -5,7 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 import os
 
-#Jos herokussa, käytä niiden paikallista db, muuten käytä omaa polkua, modifications false asetuksen puute kaataa kaiken
+#Jos herokussa, käytä niiden paikallista db, muuten käytä omaa polkua, modifications false asetuksen puute kaataa kaiken tarkastus tapahtuu HEROKU = 1 tai 0 asetuksella
 if os.environ.get("HEROKU"):
     app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
@@ -23,13 +23,13 @@ app.config["SECRET_KEY"] = urandom(32)
 from flask_login import LoginManager, current_user
 login_manager = LoginManager()
 login_manager.init_app(app)
-
 login_manager.login_view = "auth_login"
 login_manager.login_message = "Please login to use this functionality."
 
 
 from functools import wraps
 
+#Login testaus rooline perusteella
 def login_required(_func=None, *, role="ANY"):
     def wrapper(func):
         @wraps(func)
@@ -64,6 +64,8 @@ from application.teams import views
 from application.teammates import models
 
 from application.auth.models import User
+
+#Käyttäjän lataus
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(user_id)
