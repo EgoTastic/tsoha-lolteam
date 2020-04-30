@@ -31,7 +31,7 @@ Sovelluksessa voi luoda oman tunnuksen, jonka avulla voi määritellä itselleen
 - Tauluja on neljä Player, jossa on player_id, login_name, player_tag (eli LoL käyttäjänimi), salasana, roolipreferenssit ja hakeeko tiimiä, sekä minkä tilin luoma player on. 
 - Team taulussa on tiimin id sekä nimi. 
 - Viimeisenä liitostaulu pelaajien ja tiimien välillä mikä kertoo myös roolin tiimissä.
-[Linkki nykyiseen tietokantakaavioon](https://github.com/EgoTastic/tsoha-lolteam/blob/master/documentation/tietokantakaavio%20v3.pdf)
+[Linkki nykyiseen tietokantakaavioon](https://github.com/EgoTastic/tsoha-lolteam/blob/master/documentation/Tietokantakaavio%20v4.png)
 [Tietokannan CREATE TABLE komennot](https://github.com/EgoTastic/tsoha-lolteam/blob/master/documentation/taulujenluonti.md)
 
 ## 7 viikon aikana toteutetut asiat V0.00.07
