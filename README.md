@@ -2,8 +2,16 @@
   
   [Linkki herokuun jossa appi on deployattu](https://tsohateambuilder.herokuapp.com)  
   
-  Testitunnukset: username = username, password = password
-    
+  Testitunnukset: 
+  
+  Normaali käyttäjä
+  ```
+  username = username, password = password
+  ```
+  Admin käyttäjä
+  ```
+  username = adminstrator, password = password
+  ```
   [Linkki nykyiseen tietokantakaavioon](https://github.com/EgoTastic/tsoha-lolteam/blob/master/documentation/tietokantakaavio%20v3.pdf)
   
   [Linkki user storyyn](https://github.com/EgoTastic/tsoha-lolteam/blob/master/documentation/User%20Storyt.md)
