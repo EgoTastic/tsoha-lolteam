@@ -1,5 +1,11 @@
 # LoL TeamBuilder käyttöohjeet
 
+## Yleisesti
+
+TeamBuilder on rakennettu League of Legends -pelin pelaajille tiimien etsimiseen ja muodostamiseen tarkoitettu sovellus. Sovellus mahdollistaa useamman eri pelitilin ilmoittamisen (smurf/alt-accountit), minkä takia pelaajia voi ilmoittaa useamman. 
+Voit luoda uuden tiimin ja asettaa pelaajia sen eri rooleihin sekä etsiä pelaajia joilla ei vielä ole tiimiä. 
+
+
 ## Käyttö ilman tunnusta
 
 Sovellusta ei voi käyttää ilman tunnusta, oman tunnuksesi voit luoda "Register" linkistä valikosta. 
@@ -36,10 +42,10 @@ Voit valita muokattavan tiimin, pelaajan jonka haluat lisätä ja roolin mihin h
 
 Voit lisätä uuden tiimin, tarvitset vain tiimin nimen. Roolit asetetaan "Free"-vakioasetuksena
 
-## Tiimien omistajat, vain admineille (Team owners)
-
-Admin tason tilit voivat nähdä listauksen tiimeistä ja niiden omistajista. Adminit näkevät vain usernamen.
-
 ## Pelaajat ilman tiimiä (Teamless players)
 
 Täällä voit nähdä listauksen kaikista pelaajista, jotka eivät kuulu vielä yhteenkään tiimiin. Näet myöskin heidän preferoimat roolit.
+
+## Tiimien omistajat, vain admineille (Team owners)
+
+Admin tason tilit voivat nähdä listauksen tiimeistä ja niiden omistajista. Adminit näkevät vain usernamen.
