@@ -1,9 +1,10 @@
 from flask_wtf import FlaskForm
-from wtforms import SelectField, validators
-from application import app, db
-from sqlalchemy.sql import text
+from wtforms import SelectField
+
+from application import app
 from application.players.models import Player
 from application.teams.models import Team
+
 from wtforms.ext.sqlalchemy.fields import QuerySelectField
 
 #Formi jolla lisätään teammate

@@ -21,6 +21,7 @@ class PlayerForm(FlaskForm):
     class Meta:
         csrf = False
 
+#Formi jolla muokataan pelaajan roolipreferenssejä
 class PlayerEditForm(FlaskForm):
 
     player = QuerySelectField(u'Player', query_factory=Player.get_own_players, get_label='player_tag')

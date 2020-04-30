@@ -1,7 +1,7 @@
 from application import db
 from application.models import Base
 from sqlalchemy.sql import text
-from flask_login import login_required, current_user
+from flask_login import current_user
 
 class Player(Base):
     #Tietokannan sisällön määrittely, arvotyypit, voiko olla tyhjä
@@ -28,11 +28,12 @@ class Player(Base):
         self.adc = False
         self.sup = False
 
-
+    #Pelaajalistaus
     @staticmethod
     def get_player_list():
         return Player.query
 
+    #Käyttäjän omien pelaajien listaus
     @staticmethod
     def get_own_players():
         if current_user == None:
@@ -41,6 +42,7 @@ class Player(Base):
             id = current_user.id
         return Player.query.filter(Player.account_id == id)
 
+    #Pelaajien listaus jotka eivät kuulu mihinkään tiimiin
     @staticmethod
     def get_players_noteam():
         stmt = text("SELECT player.player_tag, player.top, player.jgl, player.mid, player.adc, player.sup FROM Player LEFT JOIN teammate ON teammate.player = player.id WHERE player.id NOT IN (SELECT player FROM teammate WHERE player NOTNULL)")

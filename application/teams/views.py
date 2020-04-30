@@ -3,17 +3,20 @@ from application import app, db, login_required
 from flask import render_template, request, redirect, url_for
 from flask_login import current_user
 from sqlalchemy.sql import text
+
 from application.teams.models import Team
 from application.teams.forms import TeamForm
 from application.teammates.forms import TeammateForm
 from application.teammates.models import Teammate
 from application.players.models import Player
 
+#Uuden tiimin luominen
 @app.route("/teams/new/")
 @login_required
 def teams_form():
     return render_template("teams/new.html", form = TeamForm())
 
+#Tiimien ja niiden omistajien listaus
 @app.route("/teams/owners/")
 @login_required(role="ADMIN")
 def team_owners():
@@ -55,6 +58,7 @@ def teams_create():
 
     return redirect(url_for("teams_index"))
 
+#Tiimien listaaminen toivotulla tavalla
 @app.route("/teams/", methods=["GET"])
 @login_required
 def teams_index():
@@ -134,6 +138,7 @@ def teams_index():
 
     return render_template("teams/list.html", teams = teamslist, own_teams = ownlist, form = TeammateForm())
 
+#Tiimin pelaajien editointi ja tiimin poistaminen
 @app.route("/teams/edit", methods=["POST"])
 @login_required
 def team_edit():

@@ -3,7 +3,6 @@ from application import app, db
 from flask import render_template, request, redirect, url_for
 from flask_login import login_user, logout_user
 
-from application import app
 from application.auth.models import User
 from application.auth.forms import LoginForm, RegisterForm
 
@@ -29,7 +28,7 @@ def auth_logout():
     logout_user()
     return redirect(url_for("index"))
 
-#Rekisteröinti render käsky
+#Rekisteröinti
 @app.route("/auth/register")
 def register_form():
     return render_template("/auth/register.html", form = RegisterForm())

@@ -15,6 +15,7 @@ class RegisterForm(FlaskForm):
     name = StringField("Name", [validators.Length(min=3, max=12)])
     password = PasswordField("Password", [validators.Length(min=3, max=12)])
 
+    #Validaattorit inputille
     def validate_username(form, field):
         if " " in field.data:
             raise validators.ValidationError("Username can not contain empty spaces")

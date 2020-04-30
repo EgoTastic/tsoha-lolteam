@@ -13,6 +13,7 @@ from application.teammates.models import Teammate
 def players_form():
     return render_template("players/new.html", form = PlayerForm())
 
+#Tiimittömien pelaajien renderkäsky
 @app.route("/players/teamless/")
 @login_required
 def teamless_players():
@@ -45,26 +46,31 @@ def players_create():
 def players_index():
     return render_template("players/list.html", form = PlayerEditForm() , players = Player.query.order_by(Player.id).all(), own_players = Player.query.filter(Player.account_id == current_user.id))
 
+#Top-roolin pelaajien listaus
 @app.route("/players/top", methods=["GET"])
 @login_required
 def players_index_top():
     return render_template("players/list.html", form = PlayerEditForm(), players = Player.query.filter(Player.top == True), own_players = Player.query.filter(Player.account_id == current_user.id))
 
+#Jungle-roolin pelaajien listaus
 @app.route("/players/jgl", methods=["GET"])
 @login_required
 def players_index_jgl():
     return render_template("players/list.html", form = PlayerEditForm(), players = Player.query.filter(Player.jgl == True), own_players = Player.query.filter(Player.account_id == current_user.id))
 
+#Middle-roolin pelaajien listaus
 @app.route("/players/mid", methods=["GET"])
 @login_required
 def players_index_mid():
     return render_template("players/list.html", form = PlayerEditForm(), players = Player.query.filter(Player.mid == True), own_players = Player.query.filter(Player.account_id == current_user.id))
 
+#ADC-roolin pelaajien listaus
 @app.route("/players/adc", methods=["GET"])
 @login_required
 def players_index_adc():
     return render_template("players/list.html", form = PlayerEditForm(), players = Player.query.filter(Player.adc == True), own_players = Player.query.filter(Player.account_id == current_user.id))
 
+#Support-roolin pelaajien listaus
 @app.route("/players/sup", methods=["GET"])
 @login_required
 def players_index_sup():
@@ -72,8 +78,6 @@ def players_index_sup():
 
 
 #Statuksen vaihto tai pelaajan poisto napin painolla
-
-
 @app.route("/players/edit", methods=["POST"])
 @login_required
 def player_edit():

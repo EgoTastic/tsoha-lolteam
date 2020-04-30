@@ -1,6 +1,5 @@
 from application import db
 from application.models import Base
-from sqlalchemy.sql import text
 from application.teams.models import Team
 
 class Teammate(Base):
