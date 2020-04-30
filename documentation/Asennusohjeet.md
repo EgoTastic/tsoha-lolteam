@@ -10,15 +10,6 @@ Sovelluksen ajamiseen tarvitset koneellesi asennetuna valmiiksi
 
 Voit ladata ohjelman githubista joko [suoralla latauksella githubista](https://github.com/EgoTastic/tsoha-lolteam) tai vaihtoehtoisesti konsolista git clone -komennolla.
 
-### Riippuvuuksien asentaminen 
-
-Sovelluksen vaatimien riippuvuuksien asennus suoriutuu komennolla: 
-
-```
-pip install -r requirements.txt
-```
-
-Aja komento kansion juuressa.
 
 ### Sovelluksen käynnistäminen
 
@@ -32,6 +23,12 @@ Käynnistä virtuaaliympäristö komennolla:
 
 ```
 source venv/bin/activate
+```
+
+Sovelluksen vaatimien riippuvuuksien asennus suoriutuu komennolla: 
+
+```
+pip install -r requirements.txt
 ```
 
 Tämän jälkeen voit käynnistää sovelluksen komennolla:
