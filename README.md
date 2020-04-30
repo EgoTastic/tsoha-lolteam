@@ -8,6 +8,10 @@
   
   [Linkki user storyyn](https://github.com/EgoTastic/tsoha-lolteam/blob/master/documentation/User%20Storyt.md)
   
+  [Linkki asennusohjeisiin]()
+  
+  [Linkki käyttöohjeisiin]()
+  
 ## Applikaation tavoite
   
 Tarkoitus luoda sovellus, jolla käyttäjä voi luoda itselleen profiilin ja määritellä preferoimansa rooli tiimissä (top/jungle/mid/adc/support)  
@@ -21,9 +25,15 @@ Sovelluksessa voi luoda oman tunnuksen, jonka avulla voi määritellä itselleen
 - Viimeisenä liitostaulu pelaajien ja tiimien välillä mikä kertoo myös roolin tiimissä.
 [Linkki nykyiseen tietokantakaavioon](https://github.com/EgoTastic/tsoha-lolteam/blob/master/documentation/Tietokantakaavio%20v3.png)
 
+## 7 viikon aikana toteutetut asiat V0.00.07
+- Listitty kaikki löydetyt ongelmat sekä lokaalista että herokusta
+- Lisätty kaksi yhteenvetokyselyä, toinen pelaajista joilla ei tiimiä ja toinen tiimeistä ja niiden omistajista
+- Tileillä nyt kahta eri tasoa, admin ja user. Erona se että vain admin näkee tiimien omistajatilit
+- Dokumentaatiota edistetty loppuun
 
+## 5 ja 6 viikon aikana ei edistymistä
 
-## 4 viikon aukana toteutetut asiat V0.00.04
+## 4 viikon aikana toteutetut asiat V0.00.04
 
 - liitostaulu teammates lisätty, yhdistää pelaajan tiimiin ja ilmaisee roolin
 - abstrakti luokka toteutettu
