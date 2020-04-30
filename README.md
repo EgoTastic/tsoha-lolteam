@@ -8,9 +8,9 @@
   
   [Linkki user storyyn](https://github.com/EgoTastic/tsoha-lolteam/blob/master/documentation/User%20Storyt.md)
   
-  [Linkki asennusohjeisiin]()
+  [Linkki asennusohjeisiin](https://github.com/EgoTastic/tsoha-lolteam/blob/master/documentation/Asennusohjeet.md)
   
-  [Linkki käyttöohjeisiin]()
+  [Linkki käyttöohjeisiin](https://github.com/EgoTastic/tsoha-lolteam/blob/master/documentation/Kayttoohjeet.md)
   
 ## Applikaation tavoite
   
